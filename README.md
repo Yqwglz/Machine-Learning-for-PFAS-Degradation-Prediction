@@ -7,20 +7,24 @@ This project applies machine learning to predict PFAS degradation behavior under
 ```
 PFAS-degradation/
 ├── data/
-│   ├── PFAS.csv/               # Original dataset             原始数据
-│   ├── Original/               # The dataset in the paper     论文原始数据集
-│   └── Augmented/              # Augmented data in the paper  论文增强数据
+│   ├── PFAS.csv/                       # Original dataset                               原始数据
+│   ├── Original/                       # The dataset in the paper                       论文原始数据集
+│   │   ├── test_Original_raw.csv
+│   │   ├── test_Original_standardized.csv
+│   │   ├── train_Original_raw.csv
+│   │   ├── train_Original_standardized.csv
+│   ├── Augmented/                      # Augmented data in the paper                    论文增强数据
+│   └── 
 ├── task/
-│   ├── preprocess.py          # 数据预处理
-│   ├── feature_lasso.py # 特征工程
-│   ├── VAE.py   # 数据增强
-│   ├── train.py               # 模型训练
-│   ├── evaluate.py            # 模型评估
-│   └── shap_analysis.py       # SHAP 可解释性分析
+│   ├── preprocess.py                   # Data preprocess                                数据预处理
+│   ├── feature_lasso.py                # Feature engineering                            特征工程
+│   ├── VAE.py                          # Data augmentation                              数据增强
+│   ├── Models.py                       # Model training, evaluation and SHAP analysis   模型训练
 ├── results/
-│   ├── figures/                # 结果图表
-│   ├── metrics/                # 评估指标
-│   └── shap_values/           # SHAP 值
-├── requirements.txt           # 依赖包
+│   ├── Catboost/
+│   ├── EN/
+│   ├── MLP/
+│   ├── ...            
+├── requirements.txt                    #  The required packges                           依赖包
 ├── README.md
 ```

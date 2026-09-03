@@ -13,33 +13,31 @@ import shap
 
 warnings.filterwarnings('ignore')
 
-# ============================================================================
-# ===================== 配置区域（所有可调参数集中管理）=====================
-# ============================================================================
 
-# -------------------- 基础路径配置 --------------------
+
+
 result_dir = "./result_Major revision/LOCO/xgb/905"
 cv_dir = os.path.join(result_dir, "cv5")
 shap_dir = os.path.join(result_dir, "shap_data")
 
-# -------------------- 数据路径配置 --------------------
+
 train_path = './Data_processed/LOGO/LOCO/train905.csv'
 test_path = './Data_processed/LOGO/LOCO/test905.csv'
 
-# 目标列名
+
 target_column = "Kobs(h-1)"
 
-# 要排除的列（不作为特征）
+
 exclude_columns = ["Name", target_column]
 
-# -------------------- 随机种子配置 --------------------
+
 random_seed = 42
 
-# -------------------- 交叉验证配置 --------------------
+
 cv_n_splits = 5
 cv_shuffle = True
 
-# -------------------- XGBoost网格搜索参数 --------------------
+
 xgb
 param_grid = {
 'n_estimators': [100, 200],  # 树的数量
@@ -53,14 +51,14 @@ param_grid = {
 'reg_lambda': [1, 1.5, 2],  # L2正则化
 }
 
-# -------------------- XGBoost模型固定参数 --------------------
+
 model_params = {
     'objective': 'reg:squarederror',
     'n_jobs': -1,
     'verbosity': 0
 }
 
-# -------------------- GridSearchCV配置 --------------------
+
 grid_search_params = {
     'scoring': 'neg_mean_squared_error',
     'n_jobs': -1,
@@ -68,36 +66,31 @@ grid_search_params = {
     'refit': True
 }
 
-# -------------------- SHAP分析配置 --------------------
+
 shap_sample_size = 100
 shap_max_samples = 10
 shap_top_n_interactions = 10
 
-# -------------------- 可视化配置 --------------------
+
 font_sans_serif = ['SimSun', 'Times New Roman']
 plot_style = 'seaborn-v0_8-darkgrid'
 max_labels_display = 50
 max_features_display = 50
 
-# -------------------- 输出开关 --------------------
+
 save_cv_data = True
 save_shap_results = True
 create_visualizations = True
 
-# ============================================================================
-# ===================== 配置区域结束 =========================================
-# ============================================================================
 
-# 设置中文字体
 plt.rcParams['font.sans-serif'] = font_sans_serif
 plt.rcParams['axes.unicode_minus'] = False
 
-# 设置随机种子
+
 np.random.seed(random_seed)
 
 
 def ensure_directories():
-    """确保所有必要的目录存在"""
     directories = [result_dir, cv_dir, shap_dir]
     for dir_path in directories:
         os.makedirs(dir_path, exist_ok=True)

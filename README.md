@@ -4,6 +4,7 @@ This project applies machine learning to predict PFAS degradation behavior under
 本项目应用机器学习预测不同环境和处理条件下 PFAS 的降解行为。该代码库涵盖数据预处理、特征工程、数据增强、模型训练/评估以及基于 SHAP 的可解释性分析。
 
 ## Contents
+```
 PFAS-degradation/
 ├── data/
 │   ├── raw/                    # 原始数据
@@ -24,3 +25,4 @@ PFAS-degradation/
 │   └── config.yaml            # 配置文件
 ├── requirements.txt           # 依赖包
 ├── README.md
+```

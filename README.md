@@ -7,24 +7,24 @@ This project applies machine learning to predict PFAS degradation behavior under
 ```
 PFAS-degradation/
 ├── data/
-│   ├── PFAS.csv/                       # Original dataset                               原始数据
-│   ├── Original/                       # The dataset in the paper                       论文原始数据集
-│   │   ├── test_Original_raw.csv
-│   │   ├── test_Original_standardized.csv
-│   │   ├── train_Original_raw.csv
-│   │   ├── train_Original_standardized.csv
-│   ├── Augmented/                      # Augmented data in the paper                    论文增强数据
+│   ├── PFAS.csv/                                 # Original dataset                               原始数据集
+│   ├── Original/                                 # The train/test dataset in the paper            论文训练/测试集
+│   │   ├── test_Original_raw.csv                 # The Original test dataset(Unstandardized)      原始测试集（未标准化）
+│   │   ├── test_Original_standardized.csv        # The Original test dataset(Standardized)        原始测试集（标准化）
+│   │   ├── train_Original_raw.csv                # The Original train dataset(Unstandardized)     原始训练集（未标准化）
+│   │   ├── train_Original_standardized.csv       # The Original train dataset(Standardized)       原始训练集（标准化）
+│   ├── Augmented/                                # Augmented data in the paper                    论文增强数据
 │   └── 
 ├── task/
-│   ├── preprocess.py                   # Data preprocess                                数据预处理
-│   ├── feature_lasso.py                # Feature engineering                            特征工程
-│   ├── VAE.py                          # Data augmentation                              数据增强
-│   ├── Models.py                       # Model training, evaluation and SHAP analysis   模型训练
+│   ├── preprocess.py                             # Data preprocess                                数据预处理
+│   ├── feature_lasso.py                          # Feature engineering                            特征工程
+│   ├── VAE.py                                    # Data augmentation                              数据增强
+│   ├── Models.py                                 # Model training, evaluation and SHAP analysis   模型训练
 ├── results/
 │   ├── Catboost/
 │   ├── EN/
 │   ├── MLP/
 │   ├── ...            
-├── requirements.txt                    #  The required packges                           依赖包
+├── requirements.txt                              #  The required packges                           依赖包
 ├── README.md
 ```

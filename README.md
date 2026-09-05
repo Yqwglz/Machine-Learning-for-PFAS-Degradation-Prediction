@@ -33,3 +33,13 @@ PFAS-degradation/
 ├── requirements.txt                              #  The required packges                           依赖包
 ├── README.md
 ```
+## Usage Instructions
+```
+If you wish to verify the results presented in our paper, you can directly use the standardized data in Data/Original for Lasso feature selection, then use Models to modify model parameters (Table S5, SM) and validate the benchmark results. Additionally, we provide the VAE-augmented dataset; you can use VAE_standardized and test_Original_standardized in the Augmented folder to modify model parameters and perform validation after VAE augmentation.
+
+
+If you wish to verify our random seed, you can directly use Preprocess to perform dataset splitting and standardization, and compare with Data/859-0. The subsequent workflow is the same as described in the paper. After completing the benchmark model validation, use VAEST for data augmentation and then use Models again for model validation.
+
+
+Note: You may modify the file save paths in each script as needed. All grid search parameters for all models are configured in Models and can be adjusted according to your requirements.
+```

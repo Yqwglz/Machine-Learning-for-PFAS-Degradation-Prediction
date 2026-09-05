@@ -42,13 +42,13 @@ shap_sample_size = 100
 shap_background_size = 100
 
 mlp_param_grid = {
-    'hidden_layer_sizes': [(100, 100), ],
-    'activation': ['tanh'],
-    'alpha': [0.01, ],
-    'learning_rate': ['constant', ],
-    'learning_rate_init': [0.001, ],
-    'max_iter': [100, ],
-    'batch_size': [32, ],
+    'hidden_layer_sizes': [(50,), (100,), (100, 100), (50, 30, 20), (100, 50, 25), ],
+    'activation': ['relu', 'tanh'],
+    'alpha': [0.0001, 0.001, 0.01],  
+    'learning_rate': ['constant', 'adaptive'],
+    'learning_rate_init': [0.001, 0.005, 0.01],
+    'max_iter': [100, 500, 1000],
+    'batch_size': [32, 64, 128],
     'early_stopping': [True],
 }
 
@@ -60,12 +60,12 @@ mlp_model_params = {
 }
 
 rf_param_grid = {
-    'n_estimators': [200, ],
-    'max_depth': [10, ],
-    'min_samples_split': [2, ],
-    'min_samples_leaf': [2, ],
-    'max_features': [None],
-    'bootstrap': [True, False]
+    'n_estimators': [ 200, 300, 400],  
+    'max_depth': [ 10, 15, 20, 30, None],  
+    'min_samples_split': [1, 2, 4, 5, 10, 20],  
+    'min_samples_leaf': [ 2, 4, 5, 10], 
+    'max_features': ['sqrt', 'log2', None], 
+    'bootstrap': [True, False]  
 }
 
 rf_model_params = {
@@ -74,10 +74,10 @@ rf_model_params = {
 }
 
 en_param_grid = {
-    'alpha': [0.001, ],
-    'l1_ratio': [0.05, ],
-    'max_iter': [1000, ],
-    'selection': ['cyclic', ]
+    'alpha': [0.001, 0.1, 0.15, 0.2],  
+    'l1_ratio': [0.05, 0.1, 0.15, 0.2, 0.3, 0.5], 
+    'max_iter': [1000, 5000],  
+    'selection': ['cyclic', 'random']  
 }
 
 en_model_params = {
@@ -86,8 +86,8 @@ en_model_params = {
 }
 
 ridge_param_grid = {
-    'alpha': [0.001, ],
-    'solver': ['lsqr', ]
+    'alpha': [0.001, 0.01, 0.1, 1, 10, 100, 1000],
+    'solver': ['auto', 'svd', 'cholesky', 'lsqr', 'sparse_cg', 'sag', 'saga']
 }
 
 ridge_model_params = {
@@ -95,13 +95,13 @@ ridge_model_params = {
 }
 
 cat_param_grid = {
-    'iterations': [100, ],
-    'depth': [1, ],
-    'learning_rate': [0.05, ],
-    'l2_leaf_reg': [3, ],
-    'random_strength': [0.5, ],
-    'bagging_temperature': [0, ],
-    'border_count': [32, ],
+    'iterations': [100, 200, 500],  
+    'depth': [1, 2, 4],  
+    'learning_rate': [0.05, 0.1], 
+    'l2_leaf_reg': [3, 5, 7, 9], 
+    'random_strength': [0.5, 1, 2], 
+    'bagging_temperature': [0, 0.5, 1], 
+    'border_count': [32, 64], 
     'random_seed': [42]
 }
 
@@ -112,25 +112,25 @@ cat_model_params = {
 }
 
 svm_param_grid = {
-    'svm__kernel': ['rbf'],
-    'svm__C': [100],
-    'svm__epsilon': [0.01, ],
-    'svm__gamma': ['scale', ],
-    'svm__degree': [2, ],
-    'svm__coef0': [0.0, ],
+    'svm__kernel': ['linear', 'rbf', 'poly'],  
+    'svm__C': [0.1, 1, 10, 100],  
+    'svm__epsilon': [0.01, 0.1, 0.2], 
+    'svm__gamma': ['scale', 'auto', 0.01, 0.1, 1], 
+    'svm__degree': [2, 3, 4],  
+    'svm__coef0': [0.0, 0.5, 1.0],  
 }
 
 xgb_param_grid = {
-    'n_estimators': [100, ],
-    'max_depth': [3, ],
-    'learning_rate': [0.01, ],
-    'subsample': [0.5, ],
-    'colsample_bytree': [0.7, ],
-    'min_child_weight': [3, ],
-    'gamma': [0, ],
-    'reg_alpha': [0, ],
-    'reg_lambda': [1, ],
-    'random_state': [42]
+'n_estimators': [100, 200],  
+'max_depth': [3, 5, 7],  
+'learning_rate': [0.01, 0.05, 0.1, 0.2], 
+'subsample': [0.5, 0.7, 1.0],  
+'colsample_bytree': [0.7, 0.8, 0.9, 1.0],  
+'min_child_weight': [1, 3, 5],  
+'gamma': [0, 0.1, 0.2],  
+'reg_alpha': [0, 0.1, 1],  
+'reg_lambda': [1, 1.5, 2], 
+'random_state': [42]
 }
 
 xgb_model_params = {

@@ -24,8 +24,8 @@ warnings.filterwarnings('ignore')
 
 result_dir = "./result"
 
-train_path = './train_Lasso3.csv'
-test_path = './test_standardized_1.csv'
+train_path = '../Data/train_des.csv'
+test_path = '../Data/Original/test_original_standardized.csv'
 
 FIXED_SEED = 42
 
@@ -37,7 +37,7 @@ random_seed = 42
 cv_n_splits = 5
 cv_shuffle = True
 
-# SHAP配置
+
 shap_sample_size = 100
 shap_background_size = 100
 
